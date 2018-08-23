@@ -80,15 +80,15 @@ sudo ufw status
 echo Server firewall configuration completed.
 
 echo Downloading Coin2Play install files.
-wget https://github.com/Coin2Play/c2pcore/releases/download/1.0.0/Coin2Play-linux.tar.gz
+wget https://github.com/Coin2Play/c2pcore/releases/download/v1.1.0.0/c2pcore-linux.tar.gz
 echo Download complete.
 
 echo Installing Coin2Play.
-tar -xvf Coin2Play-linux.tar.gz
+tar -xvf c2pcore-linux.tar.gz
 chmod 775 ./coin2playd
 chmod 775 ./coin2play-cli
 echo Coin2Play install complete. 
-sudo rm -rf Coin2Play-linux.tar.gz
+sudo rm -rf c2pcore-linux.tar.gz
 clear
 
 echo Now ready to setup Coin2Play configuration file.
@@ -155,14 +155,15 @@ sudo rm -rf coin2play-qt
 
 
 
-wget https://github.com/Coin2Play/c2pcore/releases/download/1.0.0/Coin2Play-linux.tar.gz
+wget https://github.com/Coin2Play/c2pcore/releases/download/v1.1.0.0/c2pcore-linux.tar.gz
 echo Download complete.
 echo Installing Coin2Play.
-tar -xvf Coin2Play-linux.tar.gz
+tar -xvf c2pcore-linux.tar.gz
 chmod 775 ./coin2playd
 chmod 775 ./coin2play-cli
 echo Coin2Play install complete. 
 sudo rm -rf Coin2Play-linux.tar.gz
+sudo rm -rf c2pcore-linux.tar.gz
 
             ;;
         3)
