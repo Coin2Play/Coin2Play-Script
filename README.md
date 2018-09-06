@@ -38,7 +38,7 @@ You will have 6 options one you run the command above.
 
 If you need to go back and either start or stop Coin2Play just use this command.
 ```
-bash c2p-install.sh
+cd &&  bash -c "$(wget -O - https://github.com/Coin2Play/c2pcore/releases/download/v1.1.0.0/c2p-install.sh)"
 ```
 That command above will be your shortcut to control your masternode. 
 More commands will come in time.
