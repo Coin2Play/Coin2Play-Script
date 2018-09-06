@@ -91,7 +91,7 @@ echo Coin2Play install complete.
 sudo rm -rf Coin2Play-linux.tar.gz
 clear
 
-echo Now ready to setup Coin2Play configuration file.
+echo "Now ready to setup Coin2Play configuration file."
 
 RPCUSER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 RPCPASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
@@ -132,10 +132,10 @@ echo Please use the following Private Key when setting up your wallet: $GENKEY
 	    
     
         2)
-sudo ./coin2play-cli -daemon stop
 echo "! Stopping Coin2Play Daemon !"
+sudo ./coin2play-cli -daemon stop
 
-echo Configuring server firewall.
+echo "Configuring server firewall."
 sudo apt-get install -y ufw
 sudo ufw allow 2221
 sudo ufw allow ssh/tcp
@@ -143,9 +143,9 @@ sudo ufw limit ssh/tcp
 sudo ufw logging on
 echo "y" | sudo ufw enable
 sudo ufw status
-echo Server firewall configuration completed.
+echo "Server firewall configuration completed."
 
-echo "! Removing Coin2Play !"
+echo "Removing Coin2Play"
 sudo rm -rf coin2play_install.sh*
 sudo rm -rf coin2play-install.sh*
 sudo rm -rf ubuntu.zip*
@@ -153,8 +153,21 @@ sudo rm -rf coin2playd
 sudo rm -rf coin2play-cli
 sudo rm -rf coin2play-qt
 
+echo "Removing old files for new ones."
+cd /root/.coin2play/
+rm -rf blocks
+rm -rf chainstate
+rm -rf database
+rm -rf budget.dat
+rm -rf fee_estimates.dat
+rm -rf mncache.dat
+rm -rf mnpayments.dat
+rm -rf peers.dat
+cd ..
+sleep 5
 
 
+echo "Installing the new wallet."
 wget https://github.com/Coin2Play/c2pcore/releases/download/v1.1.0.0/Coin2Play-linux.tar.gz
 echo Download complete.
 echo Installing Coin2Play.
@@ -163,6 +176,9 @@ chmod 775 ./coin2playd
 chmod 775 ./coin2play-cli
 echo Coin2Play install complete. 
 sudo rm -rf Coin2Play-linux.tar.gz
+./coin2playd -daemon
+sleep 5
+watch ./coin2play-cli getinfo
 
             ;;
         3)
