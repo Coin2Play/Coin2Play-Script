@@ -118,6 +118,7 @@ masternode=1
 externalip=$EXTIP
 masternodeprivkey=$GENKEY
 addnode=199.247.6.163:2221
+addnode=139.99.194.165:2221
 
 EOF
 clear
